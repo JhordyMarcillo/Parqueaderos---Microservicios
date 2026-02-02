@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: ms-clientes
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_parkin_zone
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+    sql:
+      init:
+        mode: always
+        data-locations: classpath:inserciones.sql
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin123
+    url: amqp://admin:admin123@rabbitmq:5672
+
+server:
+  port: 8081
+
+logging:
+  level:
+    com.parkin.users: DEBUG
+    org.springframework.jdbc.datasource.init: DEBUG
