@@ -22,8 +22,10 @@ public class ZoneController {
         return ResponseEntity.ok(zoneServices.getAllZones());
     }
 
+
     @PostMapping
     public ResponseEntity<ZoneResponseDto> createZone(@RequestBody ZoneRequestDto request) {
+        System.out.println(request);
         return ResponseEntity.ok(zoneServices.createZone(request));
     }
 

@@ -1,0 +1,53 @@
+<div th:fragment="content" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Registrar Nueva Zona de Parqueo</h4>
+                </div>
+                <div class="card-body">
+                    <form id="createZoneForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nombre de la Zona</label>
+                                <input type="text" id="name" class="form-control" maxlength="25" required
+                                       placeholder="Ej: Sector Norte A">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Capacidad (Cupos)</label>
+                                <input type="number" id="capacity" class="form-control" min="1" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Zona</label>
+                            <select id="type" class="form-select" required>
+                                <option value="" disabled selected>Seleccione un tipo...</option>
+                                <option value="VIP">VIP</option>
+                                <option value="INTERNAL">INTERNAL (Interno)</option>
+                                <option value="EXTERNAL">EXTERNAL (Externo)</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <textarea id="description" class="form-control" rows="3" maxlength="255"
+                                      placeholder="Detalles adicionales sobre la ubicación..."></textarea>
+                        </div>
+
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="isActive" checked>
+                            <label class="form-check-label" for="isActive">Zona Activa</label>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/zones" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">Guardar Zona</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/zones.js}"></script>
+</div>

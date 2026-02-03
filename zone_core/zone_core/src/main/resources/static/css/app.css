@@ -1,0 +1,120 @@
+/* ======================================================
+   VARIABLES Y BASE
+====================================================== */
+
+:root {
+    --border-default: #dee2e6;
+    --bg-card: #ffffff;
+    --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
+
+    --state-available: #198754;
+    --state-occupied: #dc3545;
+    --state-maintenance: #6c757d;
+}
+
+body {
+    background-color: #f5f6f8;
+}
+
+/* ======================================================
+   LAYOUT GENERAL
+====================================================== */
+
+main.container {
+    padding-bottom: 2rem;
+}
+
+/* ======================================================
+   PARKING / SPACES
+====================================================== */
+
+.parking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.parking-slot {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 15px;
+    min-height: 140px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid var(--border-default);
+    border-left: 8px solid var(--state-maintenance);
+
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.parking-slot:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* Estados */
+.space-available {
+    border-left-color: var(--state-available);
+}
+
+.space-occupied {
+    border-left-color: var(--state-occupied);
+}
+
+.space-maintenance {
+    border-left-color: var(--state-maintenance);
+}
+
+/* ======================================================
+   SLOT HEADER Y ACCIONES
+====================================================== */
+
+.slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.slot-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 6px;
+    border: 1px solid var(--border-default);
+    background-color: #f8f9fa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.btn-action:hover {
+    background-color: #e9ecef;
+}
+
+/* ======================================================
+   LEYENDAS
+====================================================== */
+
+.legend-box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-right: 6px;
+}

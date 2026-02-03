@@ -1,0 +1,28 @@
+<div th:fragment="content" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Zonas de Parqueo</h2>
+        <button class="btn btn-primary" onclick="window.location.href='/zones/create'">Nueva Zona</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="zone : ${zones}">
+            <td th:text="${zone.name}"></td>
+            <td th:text="${zone.description}"></td>
+            <td>
+                <button class="btn btn-danger btn-sm btn-delete-zone"
+                        th:data-id="${zone.id}">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <script th:src="@{/js/zones.js}"></script>
+</div>

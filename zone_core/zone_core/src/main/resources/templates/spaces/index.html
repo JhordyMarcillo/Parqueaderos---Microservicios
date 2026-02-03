@@ -1,0 +1,41 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-0">Mapa de Ocupación</h2>
+            <small class="text-muted">Estado actual del parqueo</small>
+        </div>
+        <a th:onclick="window.location.href='/spaces/create'" class="btn btn-success">
+            <i class="bi bi-plus-lg"></i> Nuevo Espacio
+        </a>
+
+        <button class="btn btn-primary" onclick="window.location.href='/zones/create'">Nueva Zona</button>
+    </div>
+
+    <div class="d-flex gap-3 mb-4 p-3 bg-white rounded shadow-sm border">
+        <div><span class="legend-box bg-success"></span> Disponible</div>
+        <div><span class="legend-box bg-danger"></span> Ocupado</div>
+        <div><span class="legend-box bg-secondary"></span> Mantenimiento</div>
+    </div>
+
+    <div class="parking-grid">
+        <div th:each="space : ${spaces}"
+             class="parking-slot"
+             th:classappend="${space.status.name() == 'AVAILABLE'} ? 'space-available' :
+                             (${space.status.name() == 'OCCUPIED'} ? 'space-occupied' : 'space-maintenance')">
+
+            <div class="slot-header">
+                <span th:text="${space.codigo}"></span>
+                <i th:if="${space.isReserved}" class="bi bi-bookmark-star-fill text-warning"></i>
+            </div>
+
+            <div class="slot-actions">
+                <button class="btn-action" th:data-id="${space.id}">
+                    <i class="bi bi-arrow-repeat"></i>
+                </button>
+                <button class="btn-action" th:data-id="${space.id}">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

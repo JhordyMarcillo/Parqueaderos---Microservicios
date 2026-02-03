@@ -1,0 +1,57 @@
+<div th:fragment="content" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Registrar Nuevo Espacio</h4>
+                </div>
+                <div class="card-body">
+                    <form id="createSpaceForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Código Identificador</label>
+                                <input type="text" id="codigo" class="form-control" maxlength="10"
+                                       placeholder="Ej: A-01" required>
+                                <small class="text-muted">Máximo 10 caracteres. Debe ser único.</small>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Orden de Visualización</label>
+                                <input type="number" id="orden" class="form-control" value="1">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Zona Asignada</label>
+                                <select id="idZone" class="form-select" required>
+                                    <option value="" disabled selected>Cargando zonas...</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Estado Inicial</label>
+                                <select id="estadoSpace" class="form-select" required>
+                                    <option value="AVAILABLE">AVAILABLE (Disponible)</option>
+                                    <option value="OCCUPIED">OCCUPIED (Ocupado)</option>
+                                    <option value="MAINTENANCE">MAINTENANCE (Mantenimiento)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="reservado">
+                            <label class="form-check-label" for="reservado">Marcar como Reservado</label>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="/spaces" class="btn btn-outline-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-success px-4">Guardar Espacio</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/spaces.js}"></script>
+</div>

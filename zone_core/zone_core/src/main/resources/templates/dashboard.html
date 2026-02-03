@@ -1,0 +1,56 @@
+<div th:fragment="content" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="display-5">Bienvenido al Sistema ZoneCore</h2>
+            <p class="text-muted">Resumen general del estado de las instalaciones.</p>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Total Espacios</h5>
+                    <p class="display-4" th:text="${totalSpaces}">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-success">Disponibles</h5>
+                    <p class="display-4" th:text="${availableSpaces}">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Zonas Activas</h5>
+                    <p class="display-4" th:text="${totalZones}">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-grid gap-2">
+                <a href="/spaces" class="btn btn-outline-primary btn-lg p-4">
+                    <strong>Gestionar Espacios</strong><br>
+                    <small>Ver, editar y cambiar estados</small>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-grid gap-2">
+                <a href="/zones" class="btn btn-outline-info btn-lg p-4">
+                    <strong>Gestionar Zonas</strong><br>
+                    <small>Configurar sectores de parqueo</small>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

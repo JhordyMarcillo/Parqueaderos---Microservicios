@@ -4,11 +4,15 @@ import ec.edu.espe.zone_core.model.ZoneType;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ZoneRequestDto {
     
     @NotBlank(message = "Name is required")
